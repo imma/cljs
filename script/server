@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function server {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local nm_app="${1:-}"
+
+  if [[ -z "$nm_app" ]]; then
+    echo "ERROR: specify an app to run" 1>&2
+    return 1
+  fi
+
+  node "$shome/out/${nm_app}/main.js"
+}
+
+server "$@"

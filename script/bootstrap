@@ -4,7 +4,21 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  npm install
+  local nm_app="${1:-}"
+  if [[ -z "$nm_app" ]]; then
+    npm install
+
+    local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.7.228/cljs.jar'
+    local fnm_cljs='cljs-1.7.228.jar'
+
+    cache curl "$fnm_cljs" "$url_cljs"
+
+    mkdir -p "$shome/vendor/src"
+    rsync -ia "${BASEBOX_CACHE}/curl/$fnm_cljs" "$shome/vendor/src/"
+    ln -nfs "$fnm_cljs" "$shome/vendor/src/cljs.jar"
+  else
+    (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "src/${nm_app}/build.clj")
+  fi
 }
 
-bootstrap
+bootstrap "$@"
