@@ -1,8 +1,8 @@
 (require 'cljs.build.api)
 
 (cljs.build.api/build "src"
-                      {:output-to "out/hello/main.js"
-                       :output-dir "out/hello"
+                      {:output-to "out/main.js"
+                       :output-dir "out"
                        :main 'hello.core
                        :target :nodejs
                        :optimizations :advanced
