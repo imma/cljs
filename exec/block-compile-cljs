@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 function say-hello {
-	local pth_main="$1"; shift
+  local pth_main="$1"; shift
 
-	cat <<__EOF
+  cat <<__EOF
 (ns hello.core
   (:require [cljs.nodejs :as nodejs]))
 
 (nodejs/enable-util-print!)
 __EOF
 
-	cat "$pth_main"
+  cat "$pth_main"
 
-	cat <<__EOF
+  cat <<__EOF
 (set! *main-cli-fn* -main)
 __EOF
 }
@@ -25,9 +25,10 @@ function main {
   local pth_cache="$1"; shift
   local pth_env="$1"; shift
 
-	local pth_cljs="$1"
+  local pth_cljs="$1"
 
-	say-hello "$pth_cljs" > "$shome/src/hello/core.cljs"
+  mkdir -p "$shome/src/hello"
+  say-hello "$pth_cljs" > "$shome/src/hello/core.cljs"
 
   rm -rf "$shome/out"
   (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "$shome/build.clj")
