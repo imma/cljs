@@ -5,6 +5,6 @@
                        :output-dir "out"
                        :main 'hello.core
                        :target :nodejs
-                       :optimizations :advanced
+                       :optimizations :simple
                        })
 
