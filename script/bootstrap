@@ -17,7 +17,8 @@ function bootstrap {
     rsync -ia "${BASEBOX_CACHE}/curl/$fnm_cljs" "$shome/vendor/src/"
     ln -nfs "$fnm_cljs" "$shome/vendor/src/cljs.jar"
   else
-    (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "src/${nm_app}/build.clj")
+    rm -rf "$shome/out/${nm_app}"
+    (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "$shome/src/${nm_app}/build.clj")
   fi
 }
 
