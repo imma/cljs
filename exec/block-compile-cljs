@@ -21,8 +21,6 @@ function main {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  set -x
-
   local phome="$1"; shift
   local pth_cache="$1"; shift
   local pth_env="$1"; shift
