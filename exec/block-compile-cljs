@@ -33,7 +33,7 @@ function main {
 
   rm -rf "$shome/out"
   (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "$shome/build.clj")
-  mv "$shome/out/main.js" > "$pth_compiled"
+  mv "$shome/out/main.js" "$pth_compiled"
   chmod 755 "$pth_compiled"
 }
 
