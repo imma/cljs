@@ -25,14 +25,16 @@ function main {
   local pth_cache="$1"; shift
   local pth_env="$1"; shift
 
-  local pth_cljs="$1"
+  local pth_cljs="$1"; shift
+  local pth_compiled="$1"; shift
 
   mkdir -p "$shome/src/hello"
   say-hello "$pth_cljs" > "$shome/src/hello/core.cljs"
 
   rm -rf "$shome/out"
   (cd "$shome" && java -cp "$shome/vendor/src/cljs.jar:src" clojure.main "$shome/build.clj")
-  cat "$shome/out/main.js"
+  mv "$shome/out/main.js" > "$pth_compiled"
+  chmod 755 "$pth_compiled"
 }
 
 source sub "$BASH_SOURCE" "$@"
