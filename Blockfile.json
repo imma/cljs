@@ -2,6 +2,7 @@
   "require": [
     "node",
     "maven",
-    "java"
+    "java",
+    "curl"
   ]
 }
