@@ -7,8 +7,8 @@ function bootstrap {
   local nm_app="${1:-}"
   npm install
 
-  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.7.228/cljs.jar'
-  local fnm_cljs='cljs-1.7.228.jar'
+  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.8.40/cljs.jar'
+  local fnm_cljs='cljs-1.8.40.jar'
 
   cache curl "$fnm_cljs" "$url_cljs"
 
