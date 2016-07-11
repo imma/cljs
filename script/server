@@ -11,7 +11,15 @@ function server {
     return 1
   fi
 
-  node "$shome/out/${nm_app}/main.js"
+  case "${1:-}" in
+    default)
+        exec node "$shome/out/${nm_app}/main.js"
+      ;;
+    *)
+      echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
+      return 1
+      ;;
+  esac
 }
 
 server "$@"
