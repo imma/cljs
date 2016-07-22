@@ -5,10 +5,13 @@ function bootstrap {
   source "$shome/script/profile"
 
   local nm_app="${1:-}"
-  npm install
 
-  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.8.51/cljs.jar'
-  local fnm_cljs='cljs-1.8.51.jar'
+  nodeenv --prebuilt --node=4.4.7 "$shome/vendor/nodeenv"
+  source "$shome/vendor/nodeenv/bin/activate"
+  block compile npm
+
+  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.9.89/cljs.jar'
+  local fnm_cljs='cljs-1.9.89.jar'
 
   cache curl "$fnm_cljs" "$url_cljs"
 
