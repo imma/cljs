@@ -11,8 +11,6 @@ function server {
     return 1
   fi
 
-  source "$shome/vendor/nodeenv/bin/activate"
-
   case "${1:-}" in
     default)
         exec node "$shome/out/${nm_app}/main.js"

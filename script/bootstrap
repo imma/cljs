@@ -6,8 +6,6 @@ function bootstrap {
 
   local nm_app="${1:-}"
 
-  nodeenv --prebuilt --node=4.4.7 "$shome/vendor/nodeenv"
-  source "$shome/vendor/nodeenv/bin/activate"
   block compile npm
 
   local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.9.89/cljs.jar'
