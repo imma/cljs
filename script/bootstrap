@@ -8,8 +8,8 @@ function bootstrap {
 
   block compile npm
 
-  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.9.89/cljs.jar'
-  local fnm_cljs='cljs-1.9.89.jar'
+  local url_cljs='https://github.com/clojure/clojurescript/releases/download/r1.9.229/cljs.jar'
+  local fnm_cljs='cljs-1.9.229.jar'
 
   cache curl "$fnm_cljs" "$url_cljs"
 
