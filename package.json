@@ -1,7 +1,8 @@
 {
   "private": "true",
   "devDependencies": {
-    "source-map-support": "0.4.0",
-    "ws": "0.8.1"
+    "source-map-support": "0.4.2",
+    "readline-sync": "1.4.4",
+    "ws": "1.1.1"
   }
 }
