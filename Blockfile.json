@@ -3,6 +3,7 @@
     "node",
     "maven",
     "java",
-    "curl"
+    "curl",
+    "leiningen"
   ]
 }
